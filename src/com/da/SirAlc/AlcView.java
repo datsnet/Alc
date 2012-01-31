@@ -1,14 +1,17 @@
 package com.da.SirAlc;
 
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -19,6 +22,8 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SimpleCursorAdapter;
+
+import com.da.util.SystemInfoUtil;
 
 public class AlcView extends Activity {
 	private WebView webview;	
@@ -33,6 +38,13 @@ public class AlcView extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webview);
+		
+		// TODO 電池処理開始
+		int batteryLevel = SystemInfoUtil.getBatteryInfo(getApplicationContext());
+		Log.i("batteryInfo", Integer.toString(batteryLevel));
+		
+		// TODO メモリ管理処理開始
+		SystemInfoUtil.getMemoryInfo(getSystemService(ACTIVITY_SERVICE));
 		
 		mHelper = new MyDBHelper(this);
 		
