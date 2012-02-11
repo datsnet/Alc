@@ -1,17 +1,16 @@
 package com.da.SirAlc;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.app.Activity;
-import android.content.ContentValues;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 public class Favorite extends Activity implements View.OnClickListener,
 	AdapterView.OnItemClickListener {
@@ -55,8 +54,18 @@ public class Favorite extends Activity implements View.OnClickListener,
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO 自動生成されたメソッド・スタブ		
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		// クリックしたらそのワードを持って遷移させる
+		
+		Log.i("parent", (String) parent.getItemAtPosition(position));
+		
+		ListView listView = (ListView) parent;
+		String str = (String) listView.getItemAtPosition(position);
+		  // ダイアログ表示のため
+        Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Selected");
+        dialog.setMessage(str);
+        dialog.show();
 	}
 
 

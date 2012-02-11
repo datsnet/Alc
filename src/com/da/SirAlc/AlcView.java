@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -38,14 +37,7 @@ public class AlcView extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webview);
-		
-		// TODO 電池処理開始
-		int batteryLevel = SystemInfoUtil.getBatteryInfo(getApplicationContext());
-		Log.i("batteryInfo", Integer.toString(batteryLevel));
-		
-		// TODO メモリ管理処理開始
-		SystemInfoUtil.getMemoryInfo(getSystemService(ACTIVITY_SERVICE));
-		
+	
 		mHelper = new MyDBHelper(this);
 		
 		Intent intent = getIntent();
@@ -92,7 +84,6 @@ public class AlcView extends Activity {
    	        	}
     	});				
 		
-		
 		// アルク読み込み開始
 		webview.loadUrl("http://eow.alc.co.jp/"+searchWord+"/UTF-8/");
 
@@ -103,7 +94,6 @@ public class AlcView extends Activity {
 		super.onResume();
 		// データベースの接続をオープン
 		mDb = mHelper.getWritableDatabase();
-
 	}
 	
     @Override
