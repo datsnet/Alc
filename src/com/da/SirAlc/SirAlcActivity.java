@@ -51,6 +51,6 @@ public class SirAlcActivity extends Activity {
     	Editable str = editText.getText();
     	Intent intent = new Intent(getApplicationContext(), AlcView.class);
     	intent.putExtra("search_word", str.toString());
-    	startActivity(intent);	 
+    	startActivity(intent);
 	}
 }

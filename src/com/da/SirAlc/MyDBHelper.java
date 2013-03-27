@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyDBHelper extends SQLiteOpenHelper {
-	private static final String DB_NAME   = "Alc";
+	private static final String DB_NAME   = "Alc.db";
 	private static final int DB_VERSION   = 1;
 	public static final String TABLE_NAME = "favorite";
 	public static final String COL_Name   = "word";

@@ -4,5 +4,9 @@
     <string name="hello">Hello World, SirAlcActivity!</string>
     <string name="app_name">アルク先生</string>
     <string name="search_button">検索</string>
+    <string name="register_done_message">登録が完了しました</string>
+    <string name="dialog_cancel">キャンセル</string>
+    <string name="dialog_ok">OK</string>
+    <string name="delete_dialog_message">削除してもよろしいですか？</string>
 
 </resources>
